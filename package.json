@@ -1,0 +1,42 @@
+{
+  "name": "kooatweet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "crypto-random-string": "^3.3.1",
+    "dotenv": "^8.2.0",
+    "googleapis": "^67.1.0",
+    "module-alias": "^2.2.2",
+    "needle": "^2.6.0",
+    "node-fetch": "^2.6.1"
+  },
+  "_moduleAliases": {
+    "@config":"./config.js",
+	
+	"@authenticateKoo":"./koo/authenticateKoo.js",
+	"@registerKoo":"./koo/registerKoo.js",
+	"@verifyKoo":"./koo/verifyKoo.js",
+	"@kooTheTweet":"./koo/kooTheTweet.js",
+  	"@createKoo":"./koo/createKoo.js",
+	
+	"@getTweetStream":"./twitter/getTweetStream.js",
+	
+	"@getOTPFromMail":"./gmail/getOTPFromMail.js"
+
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ganeshkumar269/koo-a-tweet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ganeshkumar269/koo-a-tweet/issues"
+  },
+  "homepage": "https://github.com/ganeshkumar269/koo-a-tweet#readme"
+}
