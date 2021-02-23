@@ -10,6 +10,7 @@ let getMessageList = async ()=>{
     let res = await gmail.users.messages.list({
         includeSpamTrash:true,
         userId:config.email,
+        maxResults:10,
     })
     return res    
 }
