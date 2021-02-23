@@ -1,5 +1,6 @@
 let fetch = require('node-fetch')
-const cryptoRandomString = require('crypto-random-string');
+const cryptoRandomString = require('crypto-random-string')
+const logger = require('@customLogger')({filename:__filename})
 
 const createKoo = (kooBody,token)=>{ 
 	let clientId = cryptoRandomString({length:10})
@@ -34,7 +35,7 @@ const createKoo = (kooBody,token)=>{
 	})
 	.then(res=>res.text())
 	.then(res=>JSON.parse(res))
-	.catch(err=>console.log("createKoo.js catch-err:",err))
+	.catch(err=>logger.debug("createKoo.js catch-err:",err))
 }
 
 module.exports = createKoo

@@ -4,6 +4,7 @@ const registerKoo = require('@registerKoo')
 const verifyKoo = require('@verifyKoo')
 const getOTPFromMail = require('@getOTPFromMail')
 
+const logger = require('@customLogger')({filename:__filename})
 
 const timeout = (ms)=>{
     return new Promise(resolve=>setTimeout(resolve.bind(null),ms))
@@ -13,24 +14,24 @@ const authenticateKoo = ()=>{
     return registerKoo() //response fornat logs/registerKooLog
     .then(res=>res.json())
     .then(res=>{
-        console.log("res: ", res)
+        logger.debug("res: ", res)
         if(res.status == "INSTALLED"){
-            console.log("OTP Req. sent successfully")
+            logger.debug("OTP Req. sent successfully")
             return timeout(10000)
             .then(()=>{
                 return getOTPFromMail()
                 .then(data=>{
-                    console.log("OTP: ", data)
+                    logger.debug("OTP: ", data)
                     return verifyKoo(data.otp,res.installationId)
                 })
                 .then(res=>res.json())
                 .then(res=>{
-                    console.log(res)
+                    logger.debug(res)
                     if(res.status == "VERIFIED"){
                         return {token:res.token}
                     }
                 })
-                .catch(err=>console.log(err))
+                .catch(err=>logger.debug(err))
             })
         }
     })

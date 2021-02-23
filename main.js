@@ -3,6 +3,7 @@ require("module-alias/register")
 const stream = require('@getTweetStream')
 const kooTheTweet = require('@kooTheTweet')
 const authenticateKoo = require('@authenticateKoo')
+const logger = require('@customLogger')({filename:__filename})
 
 let token = "";
 
@@ -17,10 +18,10 @@ authenticateKoo()
             .on('data',data=>{
                 try{
                     let json = JSON.parse(data) //look at tStreamLog for format of the data
-                    console.log("Tweet Recieved: ",json.data.text)
+                    logger.debug("Tweet Recieved: ",json.data.text)
                     kooTheTweet(json.data.text,token)
                     .then(res=>{
-                        console.log("Response from kooTHeTweet ",res)
+                        logger.debug("Response from kooTheTweet ",res)
                         if(res.mode == "1")
                             token = res.token
                     })
@@ -31,15 +32,15 @@ authenticateKoo()
                 }
             })
             .on('error',err=>{
-                console.log(err)
+                logger.debug(err)
                 if (error.code === 'ETIMEDOUT')
                    stream.emit('timeout')
             })
         })
     }else{
-        console.log("main.js Invalid Token")
+        logger.debug("main.js Invalid Token")
     }
 })
-.catch(err=>console.log("main.js authenticate catch-err, ", err))
+.catch(err=>logger.debug("main.js authenticate catch-err, ", err))
     
 

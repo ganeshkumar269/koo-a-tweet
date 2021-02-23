@@ -2,6 +2,8 @@ let {google} = require('googleapis')
 let config = require('@config')
 const gmail = google.gmail('v1');
 
+const logger = require('@customLogger')({filename:__filename})
+
 const oAuth2Client = new google.auth.OAuth2(config.gmailClientId,config.gmailClientSecret,config.gmailRedirectURI)
 oAuth2Client.setCredentials({refresh_token:config.gmailRefreshToken})
 google.options({auth:oAuth2Client})
@@ -29,15 +31,15 @@ const getOTPFromMail = async ()=>{
     return getMessageList()
     .then(res=>{
         let data = res.data
-        console.log(data)
+        logger.debug(data)
         return data.messages[0]
     })
     .then(id=>{
-        console.log("getOTPFromMail.js Id received: ",id)
+        logger.debug("getOTPFromMail.js Id received: ",id)
         return getMessage(id.id)
     })
     .then(data=>{
-        console.log("getOTPFromMail.js Data From GetMessage: ",data.data)
+        logger.debug("getOTPFromMail.js Data From GetMessage: ",data.data)
         return getOTPfromData(data.data)
     })
 }

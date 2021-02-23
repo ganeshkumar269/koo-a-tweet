@@ -1,0 +1,14 @@
+[2021-02-23T11:37:56.917Z] [DEBUG] [main.js] res: ,[object Object]
+[2021-02-23T11:37:56.918Z] [DEBUG] [main.js] OTP Req. sent successfully
+[2021-02-23T11:38:08.256Z] [DEBUG] [main.js] [object Object]
+[2021-02-23T11:38:08.256Z] [DEBUG] [main.js] getOTPFromMail.js Id received: ,[object Object]
+[2021-02-23T11:38:08.898Z] [DEBUG] [main.js] getOTPFromMail.js Data From GetMessage: ,[object Object]
+[2021-02-23T11:38:08.898Z] [DEBUG] [main.js] OTP: ,[object Object]
+[2021-02-23T11:38:09.534Z] [DEBUG] [main.js] [object Object]
+[2021-02-23T11:39:43.808Z] [DEBUG] [main.js] res: ,[object Object]
+[2021-02-23T11:39:43.808Z] [DEBUG] [main.js] OTP Req. sent successfully
+[2021-02-23T11:39:54.727Z] [DEBUG] [main.js] [object Object]
+[2021-02-23T11:39:54.727Z] [DEBUG] [main.js] getOTPFromMail.js Id received: ,[object Object]
+[2021-02-23T11:39:55.459Z] [DEBUG] [main.js] getOTPFromMail.js Data From GetMessage: ,[object Object]
+[2021-02-23T11:39:55.459Z] [DEBUG] [main.js] OTP: ,[object Object]
+[2021-02-23T11:39:55.822Z] [DEBUG] [main.js] [object Object]
