@@ -1,6 +1,7 @@
 let {google} = require('googleapis')
 let config = require('@config')
 const gmail = google.gmail('v1');
+const logger = require('@logger')
 
 const oAuth2Client = new google.auth.OAuth2(config.gmailClientId,config.gmailClientSecret,config.gmailRedirectURI)
 oAuth2Client.setCredentials({refresh_token:config.gmailRefreshToken})

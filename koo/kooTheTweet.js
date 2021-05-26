@@ -2,6 +2,7 @@ require("module-alias/register")
 
 const createKoo = require('@createKoo')
 const authenticateKoo = require('@authenticateKoo')
+const logger = require('@logger')
 
 
 //mode="0" if success in first attempt

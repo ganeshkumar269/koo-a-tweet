@@ -1,5 +1,6 @@
 let fetch = require('node-fetch')
 const cryptoRandomString = require('crypto-random-string');
+const logger = require('@logger')
 
 const createKoo = (kooBody,token)=>{ 
 	let clientId = cryptoRandomString({length:10})
