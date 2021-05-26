@@ -7,6 +7,7 @@ const verifyKoo = async (otp,userId)=>{
 
     let body = {
         "otp" : otp,
+        "countryCode" : "",
         "registerType" : "1",
         "userRegistrationId" : userId,
         "identifier": config.email,
