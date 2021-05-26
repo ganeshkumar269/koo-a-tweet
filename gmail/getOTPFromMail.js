@@ -30,15 +30,15 @@ const getOTPFromMail = async ()=>{
     return getMessageList()
     .then(res=>{
         let data = res.data
-        console.log(data)
+        logger.debug("getOTPFromMail.js data: ",data)
         return data.messages[0]
     })
     .then(id=>{
-        console.log("getOTPFromMail.js Id received: ",id)
+        logger.debug("getOTPFromMail.js Id received: ",id)
         return getMessage(id.id)
     })
     .then(data=>{
-        console.log("getOTPFromMail.js Data From GetMessage: ",data.data)
+        logger.debug("getOTPFromMail.js Data From GetMessage: ",data.data)
         return getOTPfromData(data.data)
     })
 }

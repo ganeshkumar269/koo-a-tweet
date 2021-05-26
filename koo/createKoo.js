@@ -34,7 +34,7 @@ const createKoo = (kooBody,token)=>{
 	})
 	.then(res=>res.text())
 	.then(res=>JSON.parse(res))
-	.catch(err=>console.log("createKoo.js catch-err:",err))
+	.catch(err=>logger.debug("createKoo.js catch-err:",err))
 }
 
 module.exports = createKoo

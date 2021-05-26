@@ -11,7 +11,7 @@ const kooTheTweet = (tweet,token)=>{
     return createKoo(tweet,token)
     .then(res=>{
         if(res.status == "failed"){
-            console.log("First Attempt to Koo Failed, Trying to authenticate")
+            logger.debug("First Attempt to Koo Failed, Trying to authenticate")
             return authenticateKoo()
             .then(res=>{
                 return createKoo(tweet,res.token)
@@ -21,9 +21,9 @@ const kooTheTweet = (tweet,token)=>{
                     return d
                 })
             })
-            .catch(err=>console.log("kooTheTweet catch-err: ",err))
+            .catch(err=>logger.debug("kooTheTweet catch-err: ",err))
         }
-        console.log("First Attempt to Koo Success")
+        logger.debug("First Attempt to Koo Success")
         res.mode="0"
         return res
     })
