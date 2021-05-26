@@ -3,6 +3,7 @@ require("module-alias/register")
 const registerKoo = require('@registerKoo')
 const verifyKoo = require('@verifyKoo')
 const getOTPFromMail = require('@getOTPFromMail')
+const logger = require('@logger')
 
 
 const timeout = (ms)=>{
