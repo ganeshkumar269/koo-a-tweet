@@ -5,9 +5,14 @@ const createKoo = (kooBody,token)=>{
 	let clientId = cryptoRandomString({length:10})
 
 	let body = {
-		contentClientId : "295f48d2-4cc3-40b4-a2f5-"+clientId,
-		mediaType : "GENERIC",
-		title : kooBody,
+		"contentClientId":"bd490e64-2406-4feb-98b0-" + clientId,
+		"mediaType":"GENERIC",
+		"media":{"link":"","linkTitle":"","linkImage":"","audioOpus":"","audioMp3":"","audioHls":"","videoMp4":"","videoHls":"","imageUrl":[],"audiogramMp4":"","meta":{}},
+		"title": kooBody,
+		"parentKuId":"",
+		"mediaText":"",
+		"location":"",
+		"charchaId":null
 	}
 	
 	return fetch("https://www.kooapp.com/apiV1/ku", {
